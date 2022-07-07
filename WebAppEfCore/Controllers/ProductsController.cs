@@ -43,6 +43,7 @@ namespace WebAppEfCore.Controllers
         public async Task<ActionResult> Post([FromBody] Product product)
         {
             product.CreatedDate = DateTime.Now;
+            product.UpdatedDate = DateTime.MinValue;
 
             _context.Add(product);
 
@@ -76,7 +77,7 @@ namespace WebAppEfCore.Controllers
             }
 
 
-            return Ok(product);
+            return Ok(entity);
         }
 
         // DELETE api/<ProductsController>/5
