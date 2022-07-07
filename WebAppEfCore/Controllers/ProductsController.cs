@@ -68,7 +68,7 @@ namespace WebAppEfCore.Controllers
             }
             catch (DbUpdateConcurrencyException ex)
             {
-                throw new Exception(ex.Message);
+                return Conflict(ex.Message);
             }
             catch (Exception ex)
             {
